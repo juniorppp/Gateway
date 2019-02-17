@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Gelson Junior">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    {% block head %}
+            <title>{% block title %}{% endblock %} - My Webpage</title>
+        {% endblock %}
+    
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/sweet-alert.css">
+    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    <style>
+    	.card-body.little-profile.text-center .b-b:last-child {
+			border-bottom: 0px !important;
+		}
+    </style>
+</head>
+
+<body class="fix-header card-no-border logo-center">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header d-none d-md-block">
+                    <a class="navbar-brand" href="index.php">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo icon -->
+                            <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                         <!-- dark Logo text -->
+                         <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                         <!-- Light Logo text -->    
+                         <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)" style="padding: 0;font-size: 29px;"><i class="mdi mdi-menu"></i></a> </li>
+                        
+                        <li class="nav-item" style="line-height: 49px;"><a href="index.php" class="nav-link hidden-md-up waves-dark" style="margin-left: 15px; text-transform:uppercase;font-size: 21px;font-family: Open Sans,Arial,sans-serif;font-weight: bold; line-height:32px !important;"><?=NOMESISTEMA?></a></li>
+                        
+                    </ul>
+                    
+                    
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/4.jpg" alt="user" class="profile-pic" /></a>
+                            <div class="dropdown-menu dropdown-menu-right scale-up">
+                                <ul class="dropdown-user" style="width: 100%;
+    min-width: 270px;">
+                                    <li>
+                                        <div class="dw-user-box">
+                                            <div class="u-img" style="width: 20%;"><img src="assets/images/users/4.jpg" alt="user"></div>
+                                            <div class="u-text" style="width: 78%;">
+                                                <h4>Gelson Junior</h4>
+                                                <p class="text-muted" style="overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* display: none; */
+    width: 100%;">junior.ppp@gmail.com</p></div>
+                                        </div>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    
+                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="index.php?controle=Autenticacao&acao=sair"><i class="fa fa-power-off"></i> Sair do sistema</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </header>
+<aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-small-cap">PERSONAL</li>
+                        <li>
+                            <a href=""><i class="mdi mdi-gauge"></i><span class="hide-menu">Painel de Controle </span></a>
+                        </li>
+                        <li>
+                            <a href="/cliente"><i class="mdi mdi-gauge"></i><span class="hide-menu">Clientes </span></a>
+                        </li>
+                        
+                            
+                            <li>
+                            <a data-toggle="modal" data-target="#myModal"><i class="mdi mdi-settings"></i><span class="hide-menu">Configurações </span></a>
+                            </li>
+                            
+                        
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+<div class="page-wrapper">
+
+{% block content %}{% endblock %}
+
+<footer class="footer">
+                © 2018 , Sistema desenvolvido por <strong>Gelson Junior</strong>
+            </footer>
+
+        </div>
+    </div>
+    
+<!-- MODAL -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">Configurações</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                                Não sei oq faer com isso...
+                                            </div>
+                                            <div class="modal-footer">
+                                            	<button id="btn-salvar" type="button" class="btn btn-info waves-effect">Salvar</button>
+                                                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Fechar</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- MODAL DE FILHOS -->
+                                <div class="modal fade" id="FilhosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+                                    <table class="table stylish-table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nome</font></font></th>
+                                                
+                                                <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Status</font></font></th>
+                                                <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usuário</font></font></th>
+                                                <th>Ação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="Lista_Filiacao">
+                                        	<tr><td colspan="5">Aguarde enquanto carrego os dados...</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+                                
+                                
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <script src="js/sweet-alert.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/plugins/popper/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="js/image.js"></script>
+</body>
+</html>
