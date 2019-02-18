@@ -60,7 +60,9 @@ $container[App\Action\HomeAction::class] = function ($c) {
 $container[App\API\ChangeStageAPI::class] = function ($c) {
     return new App\API\ChangeStageAPI($c['pdo']);
 };
-
 $container[App\API\ValidaChaveAPI::class] = function ($c) {
     return new App\API\ValidaChaveAPI($c['pdo']);
+};
+$container[App\API\CadastroAPI::class] = function ($c) {
+    return new App\API\CadastroAPI($c['pdo']);
 };

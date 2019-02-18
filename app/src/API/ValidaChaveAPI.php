@@ -21,12 +21,9 @@ final class ValidaChaveAPI
 		//$dados = $this->pdo->query("update bot set status = '0'");
 		//$dados->execute();
 
-		$newResponse = $response->withStatus(404)->withJson(['status' => "200", "mensagem" => "Usuario autenticado", "validade" => "2019-03-11"]);
+		$newResponse = $response->withStatus(200)->withJson(['status' => "200", "mensagem" => "Usuario autenticado", "validade" => "2019-03-11"]);
 		return $newResponse;
-		
-
-        
-		
+			
     }
 	
 	public function teste($nome1){
