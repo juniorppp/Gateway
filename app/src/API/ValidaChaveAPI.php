@@ -17,11 +17,15 @@ final class ValidaChaveAPI
 
     public function __invoke(Request $request, Response $response, $args)
     {
+		$serial = $this->pdo->query("select validade from chave where serial = '".$_POST['chave']."' and idcliente = '".$_POST['idcliente']."'");
+		//if($serial->rowCount() == 0){
+			// Não existe a chave
+			
+		//}else{
+			$linha = $serial->fetch();
+			$newResponse = $response->withJson(["status"=>"200","mensagem"=>"","validade"=>$linha['validade']]);
+		//}
 
-		//$dados = $this->pdo->query("update bot set status = '0'");
-		//$dados->execute();
-
-		$newResponse = $response->withStatus(200)->withJson(['status' => "200", "mensagem" => "Usuario autenticado", "validade" => "2019-03-11"]);
 		return $newResponse;
 			
     }

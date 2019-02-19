@@ -86,7 +86,7 @@
                             <div class="card-body">
                                 <div class="d-flex flex-row">
                                     <div class="round align-self-center round-success m-r-10" style="width:65px; height:65px;"><img src="assets/images/users/5.jpg" class="img-circle m-b-30" width="65"></div>
-                                    <div class="m-l-10 align-self-center">
+                                    <div class="m-l-10 align-self-center w-100">
                                         <h3 class="m-b-5"><font style="
     font-size: 11px;
     font-weight: 100;
@@ -102,14 +102,17 @@
 ">Chave de licença:</font>
 <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ bot.serial}}</font></font></h5>
 
-<h5 class="text-muted m-b-0">
+<h5 class="text-muted m-b-0" style="position:relative">
+<span class="qrcode"><i class="mdi mdi-qrcode"></i></span>
                                         <font style="
     font-size: 11px;
     font-weight: 100;
     display: block;
     margin: 0 0 0px 0;
 ">Valída da licença:</font>
-<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ bot.validade|date("d/m/Y") }}</font></font></h5>
+<font style="vertical-align: inherit;">
+<font style="vertical-align: inherit;">{{ bot.validade|date("d/m/Y") }}</font>
+</font></h5>
 
 </div>
                                 </div>

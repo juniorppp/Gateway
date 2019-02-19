@@ -66,3 +66,6 @@ $container[App\API\ValidaChaveAPI::class] = function ($c) {
 $container[App\API\CadastroAPI::class] = function ($c) {
     return new App\API\CadastroAPI($c['pdo']);
 };
+$container[App\API\QRCodeAPI::class] = function ($c) {
+    return new App\API\QRCodeAPI($c['pdo']);
+};

@@ -22,7 +22,7 @@ final class HomeAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $bot = $this->pdo->query("SELECT SQL_CACHE MASK(b.bot_numero,'+## ## #####-####') as bot_numero,b.status,c.validade,c.serial FROM bot b inner join chave c on b.idchave=c.id where b.idcliente = '1'");
+        $bot = $this->pdo->query("SELECT SQL_CACHE MASK(b.bot_numero,'+## ## #####-####') as bot_numero,b.status,c.validade,c.serial,c.qrcode FROM bot b inner join chave c on b.idchave=c.id where b.idcliente = '1'");
 		$dados = $this->pdo->query("SELECT * FROM cliente where id = '1'");
 		/*
 		$newResponse = $response->withJson(['usuarios' => $usuarios->fetchAll()]);
