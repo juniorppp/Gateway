@@ -69,3 +69,9 @@ $container[App\API\CadastroAPI::class] = function ($c) {
 $container[App\API\QRCodeAPI::class] = function ($c) {
     return new App\API\QRCodeAPI($c['pdo']);
 };
+################
+##### Model ####
+################
+$container[App\Modal\QRCodeModal::class] = function ($c) {
+    return new App\Modal\QRCodeModal($c['pdo']);
+};

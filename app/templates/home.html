@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Pagina Inicial{% endblock %}
+{% block title %}Gateway Whatsapp - Pagina Inicial{% endblock %}
 
 {% block content %}
 
@@ -103,7 +103,8 @@
 <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ bot.serial}}</font></font></h5>
 
 <h5 class="text-muted m-b-0" style="position:relative">
-<span class="qrcode"><i class="mdi mdi-qrcode"></i></span>
+
+<span class="qrcode" data-toggle="modal" data-target="#QRCodeModal" data-chave="{{ bot.serial}}" data-idcliente="{{ bot.idcliente}}"><i class="mdi mdi-qrcode"></i></span>
                                         <font style="
     font-size: 11px;
     font-weight: 100;
@@ -135,7 +136,25 @@
                 <!-- FINAL PANEL -->
                 
             </div>
-          
+            <!-- MODAL -->
+            <div class="modal fade" id="QRCodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content modal-style verde">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">QRCode Whatsapp</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="QRCode_Scan">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar janela</button>
+      </div>
+    </div>
+  </div>
+</div>        
 
      
 {% endblock %}
