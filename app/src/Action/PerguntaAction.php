@@ -23,7 +23,8 @@ final class PerguntaAction
     public function __invoke(Request $request, Response $response, $args)
     {
 		
-        $pergunta = $this->pdo->query("SELECT SQL_CACHE pergunta,resposta,id,status from pergunta");
+        $pergunta = $this->pdo->query("SELECT pergunta,resposta,id,status from pergunta where idchave = '".$args['id']."'");
+		//$bot = $this->pdo->query("select MASK(bot_numero,'+## ## #####-####') as numero from bot where idchave = '".$args['id']."'");
 
 		/*
 		$newResponse = $response->withJson(['usuarios' => $usuarios->fetchAll()]);
@@ -32,7 +33,7 @@ final class PerguntaAction
 
         $this->view->render($response, 'pergunta.html', [
             'perguntas' => $pergunta,
-			'bot' => array("teste"=>"+55 (12) 98810-1019"),
+			'bots' => array("numero"=>"55555555555"),
         ]);
 		
         return $response;
