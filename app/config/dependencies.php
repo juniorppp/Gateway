@@ -25,6 +25,10 @@ $container['view'] = function ($c) {
         'cache' => $view_config['cache'],
         'debug' => $view_config['debug']
     ]);
+	
+	$view->getEnvironment()->addGlobal('public', SYSTEM_URL);
+	$view->getEnvironment()->addGlobal('NAMESISTEM', NAMESISTEM);
+	//$view->addExtension(new \Twig\Extension\DebugExtension());
 
     $view->addExtension(new \Slim\Views\TwigExtension(
         $c['router'],
@@ -54,6 +58,9 @@ $container[App\Action\HomeAction::class] = function ($c) {
 };
 $container[App\Action\LoginAction::class] = function ($c) {
     return new App\Action\LoginAction($c['logger'], $c['view'], $c['pdo']);
+};
+$container[App\Action\PerguntaAction::class] = function ($c) {
+    return new App\Action\PerguntaAction($c['logger'], $c['view'], $c['pdo']);
 };
 
 ################
