@@ -52,6 +52,9 @@ $container['pdo'] = function ($c) {
 $container[App\Action\HomeAction::class] = function ($c) {
     return new App\Action\HomeAction($c['logger'], $c['view'], $c['pdo']);
 };
+$container[App\Action\LoginAction::class] = function ($c) {
+    return new App\Action\LoginAction($c['logger'], $c['view'], $c['pdo']);
+};
 
 ################
 ###### API #####
