@@ -61,17 +61,17 @@
                             </div>
                          
                             <div class="card-body">
-                            <form method="post" action="" class="form-horizontal" id="loginform" name="form1">
+                            <form method="post" action="" class="form-horizontal" id="pergunta" name="pergunta">
                             	<div class="form-group">
                                     <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pergunta</font></font></label>
-                                    <input type="text" class="form-control" value="" required="required">
+                                    <input type="text" id="txt_pergunta" class="form-control" value="" autocomplete="off" required="required">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Resposta</font></font></label>
-                                    <textarea rows="3" required="required" class="form-control"></textarea>
+                                    <textarea rows="3" required="required" class="form-control" id="txt_resposta"></textarea>
                                 </div>
-                                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Salvar pergunta</button>
+                                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit" id="SalvarPergunta">Salvar pergunta</button>
                             </form>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                                                 <th style="text-align:right">Ações</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="ListaPergunta">
                                         
                                         {% for pergunta in perguntas %}
                                         
