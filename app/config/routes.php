@@ -9,8 +9,12 @@ $app->post('/api/v1/validade_chave', App\API\ValidaChaveAPI::class);
 $app->post('/api/v1/cadastro', App\API\CadastroAPI::class);
 $app->post('/api/v1/qrcode_scan', App\API\QRCodeAPI::class);
 
-$app->post('/modal/qrcode', App\Modal\QRCodeModal::class);
+//OPERADORES PERGUSNTA
+$app->delete('/api/v1/pergunta/{id:[0-9]+}', 'App\Action\ApiAction::deletar');
+$app->post('/api/v1/pergunta', 'App\Action\ApiAction::cadastrar');
+$app->put('/api/v1/pergunta', 'App\Action\ApiAction::editar');
 
+$app->post('/modal/qrcode', App\Modal\QRCodeModal::class);
 
 
 //ACESSAR A FUNCTION teste() DENTRO DE ApiAction.php
