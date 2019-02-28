@@ -20,6 +20,10 @@ final class CadastroAPI
 		$SalvaChave->execute($Parametros);	
 		return $this->pdo->lastInsertId();
 	}
+	
+	private function SalvarBot(){
+		
+	}
 
     public function __invoke(Request $request, Response $response, $args)
     {

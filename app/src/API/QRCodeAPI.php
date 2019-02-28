@@ -23,8 +23,4 @@ final class QRCodeAPI
 		return $newResponse = $response->withJson(["status"=>(int) $status]);
 			
     }
-	
-	public function teste($nome1){
-		print_r($nome1);
-	}
 }
