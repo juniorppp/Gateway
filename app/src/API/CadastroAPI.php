@@ -14,7 +14,7 @@ final class CadastroAPI
     {
         $this->pdo = $pdo;
     }
-	public function Limpa($a,$b){
+	public function Limpa($a,$b,$c){
 		return str_replace($a,$b,$c);
 	}
 	
@@ -24,8 +24,9 @@ final class CadastroAPI
 		return $this->pdo->lastInsertId();
 	}
 	
-	private function SalvarBot(){
-		$SalvaBot = $this->pdo->prepare("insert into chave (bot_numero, status, idcliente, idchave) values (:numerobot,:status,:idcliente,:idchave)");
+	private function SalvarBot(array $Parametros){
+		print_r($Parametros);
+		$SalvaBot = $this->pdo->prepare("insert into bot (bot_numero, status, idcliente, idchave) values (:numerobot,:status,:idcliente,:idchave)");
 		$SalvaBot->execute($Parametros);
 	}
 
@@ -34,12 +35,14 @@ final class CadastroAPI
 		//ARMAZENANDO DADOS
 		$Chave = $_POST["chave"];
 		$Mac = $_POST["mac_address"];
-		
+		$NumeroBot = $this->Limpa(array("+","-"," ","(",")"),array("","","","",""),$_POST['numero_bot']);
+
 		$Complemento = array("data"=>date("Y-m-d"),"status"=>"1");
 		$Teste = array_merge($_POST, $Complemento);
 		
 		unset($Teste['chave']);
 		unset($Teste['mac_address']);
+		unset($Teste['numero_bot']);
 
 		$dados = $this->pdo->prepare("insert into cliente (nome, data_nasc, cpf, email, telefone, senha, status, data_cadastro) values (:nome, :nasc, :cpf, :email, :telefone, :senha, :status, :data)");
 		$dados->execute($Teste);
@@ -52,7 +55,7 @@ final class CadastroAPI
 		$IDChave = self::SalvaChave($Keys);
 		$StatusResposta = $IDChave ? "200" : "400";
 		
-		$NumeroBot = $this->Limpa(array("+","-"," ","(",")"),array("","","","",""),$_POST['numero_bot']);
+		
 		
 		self::SalvarBot(array("numerobot"=>$NumeroBot,"status"=>"0","idcliente"=>$IDCliente,"idchave"=>$IDChave));
 		

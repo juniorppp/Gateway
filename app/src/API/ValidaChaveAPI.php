@@ -18,13 +18,13 @@ final class ValidaChaveAPI
     public function __invoke(Request $request, Response $response, $args)
     {
 		$serial = $this->pdo->query("select validade from chave where serial = '".$_POST['chave']."' and idcliente = '".$_POST['idcliente']."'");
-		//if($serial->rowCount() == 0){
+		if($serial->rowCount() == 0){
 			// Não existe a chave
-			
-		//}else{
+			$newResponse = $response->withJson(["status"=>"200","mensagem"=>"","validade"=>"2019-02-28"]);
+		}else{
 			$linha = $serial->fetch();
 			$newResponse = $response->withJson(["status"=>"200","mensagem"=>"","validade"=>$linha['validade']]);
-		//}
+		}
 
 		return $newResponse;
 			
