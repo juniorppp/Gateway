@@ -14,6 +14,9 @@ final class CadastroAPI
     {
         $this->pdo = $pdo;
     }
+	public function Limpa($a,$b){
+		return str_replace($a,$b,$c);
+	}
 	
 	private function SalvaChave(array $Parametros ){		
 		$SalvaChave = $this->pdo->prepare("insert into chave (serial, validade, status, idcliente, mac_address, qrcode) values (:chave,:validade,:status,:idcliente,:mac,:qrcode)");
@@ -22,7 +25,8 @@ final class CadastroAPI
 	}
 	
 	private function SalvarBot(){
-		
+		$SalvaBot = $this->pdo->prepare("insert into chave (bot_numero, status, idcliente, idchave) values (:numerobot,:status,:idcliente,:idchave)");
+		$SalvaBot->execute($Parametros);
 	}
 
     public function __invoke(Request $request, Response $response, $args)
@@ -47,6 +51,10 @@ final class CadastroAPI
 		
 		$IDChave = self::SalvaChave($Keys);
 		$StatusResposta = $IDChave ? "200" : "400";
+		
+		$NumeroBot = $this->Limpa(array("+","-"," ","(",")"),array("","","","",""),$_POST['numero_bot']);
+		
+		self::SalvarBot(array("numerobot"=>$NumeroBot,"status"=>"0","idcliente"=>$IDCliente,"idchave"=>$IDChave));
 		
 		$newResponse = $response->withStatus(200)->withJson(['status' => $StatusResposta, "mensagem" => "Usuario cadastrado com sucesso".$IDChave, "validade" => $ValidadeChave, "id"=>$IDCliente, "idchave"=>$IDChave]);
 		
