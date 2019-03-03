@@ -25,7 +25,7 @@ final class CadastroAPI
 	}
 	
 	private function SalvarBot(array $Parametros){
-		print_r($Parametros);
+		
 		$SalvaBot = $this->pdo->prepare("insert into bot (bot_numero, status, idcliente, idchave) values (:numerobot,:status,:idcliente,:idchave)");
 		$SalvaBot->execute($Parametros);
 	}

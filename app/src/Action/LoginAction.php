@@ -30,4 +30,22 @@ final class LoginAction
         return $response;
 		
     }
+/*
+	public function Conectar(Request $request, Response $response, $args){
+		print_r($this->view);
+		$serial = $this->pdo->query("select * from cliente");
+		if($serial->rowCount() == 0){
+			$newResponse = $response->withJson(["status"=>"404","mensagem"=>"Usúario ou senha não encontrado na base de dados."]);
+			$_SESSION['nome'] = "junior";
+			$_SESSION['email'] = "junior.ppp@gmail.com";
+			$this->view->getEnvironment()->addGlobal('usuario', $_SESSION);
+			
+		}else{
+			$newResponse = $response->withJson(["status"=>"200","mensagem"=>"Conectando ao painel..."]);
+		}
+
+			return $newResponse;
+		
+	}
+	*/
 }

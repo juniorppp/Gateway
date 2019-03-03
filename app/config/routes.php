@@ -1,8 +1,10 @@
 <?php
 
-$app->get('/', App\Action\HomeAction::class);
+$app->get('/painel', App\Action\HomeAction::class);
 $app->get('/pergunta/{id}', App\Action\PerguntaAction::class);
-$app->get('/login', App\Action\LoginAction::class);
+$app->get('/', App\Action\LoginAction::class);
+//$app->get('/conectar', App\Action\LoginAction::class . ':Conectar');
+
 
 $app->post('/api/v1/change_stage', App\API\ChangeStageAPI::class);
 $app->post('/api/v1/validade_chave', App\API\ValidaChaveAPI::class);

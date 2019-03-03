@@ -1,5 +1,12 @@
 <?php
-
+/*
+if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['nome']) && !isset($_SESSION['email'])) {
+	//session_destroy();
+	//header("Location: index.php"); exit;
+}
+*/
+//print_r($_SESSION);
 $container = $app->getContainer();
 
 $container['logger'] = function ($c) {
@@ -28,6 +35,13 @@ $container['view'] = function ($c) {
 	
 	$view->getEnvironment()->addGlobal('public', SYSTEM_URL);
 	$view->getEnvironment()->addGlobal('NAMESISTEM', NAMESISTEM);
+	/*
+	if(isset($_SESSION)){
+		$view->getEnvironment()->addGlobal('nome', $_SESSION['nome']);
+		$view->getEnvironment()->addGlobal('email', $_SESSION['email']);
+	}
+	*/
+	//$view->getEnvironment()->addGlobal('usuario','Lucas');
 	//$view->addExtension(new \Twig\Extension\DebugExtension());
 
     $view->addExtension(new \Slim\Views\TwigExtension(
